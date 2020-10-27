@@ -1,0 +1,9 @@
+**/*.js
+**/*.ts
+**/*.jsx
+**/*.tsx
+dist/**
+**/*.json
+**/*.cmd
+**/*.sh
+LICENSE

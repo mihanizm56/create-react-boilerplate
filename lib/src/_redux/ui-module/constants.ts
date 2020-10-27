@@ -1,0 +1,1 @@
+export const MODULE_REDUCER_NAME = 'UI_REDUCER';

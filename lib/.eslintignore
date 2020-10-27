@@ -1,0 +1,8 @@
+node_modules/
+build/
+src/setupEnzyme.ts
+react-app-env.d.ts
+integration-tests/
+!**/.*
+
+gulpfile.js

@@ -1,0 +1,62 @@
+{
+  "name": "@wildberries/create-react-boilerplate",
+  "version": "0.2.26",
+  "description": "boilerplate wildberries",
+  "license": "MIT",
+  "homepage": "https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate/issues"
+  },
+  "scripts": {
+    "lint": "npx eslint ./config --ext .js --fix",
+    "commit": "git add . && git commit --no-edit",
+    "release": "npm link && npm run commit && git push && npm publish --access=public",
+    "beta": "npm link && npm run commit && git push && npm publish --tag beta --access=public",
+    "size": "pkgfiles"
+  },
+  "dependencies": {
+    "@mihanizm56/node-file-copier": "0.0.5",
+    "@wildberries/boilerplate-cli-packager": "0.0.20",
+    "colors": "1.4.0",
+    "enquirer": "2.3.6",
+    "fs-extra": "9.0.0",
+    "listr2": "3.1.1",
+    "mkdirp-promise": "5.0.1",
+    "util": "0.12.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "babel-eslint": "10.0.3",
+    "commitizen": "4.0.4",
+    "cz-customizable": "6.2.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-security": "1.4.0",
+    "husky": "3.0.9",
+    "pkgfiles": "2.3.2",
+    "prettier": "1.18.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/git/commitizen.js"
+    }
+  },
+  "files": [
+    "lib/",
+    "config/execution/",
+    "node_modules/@mihanizm56/node-file-copier/"
+  ],
+  "bin": "config/execution/executor.js"
+}

@@ -1,0 +1,10 @@
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: var(--overlay-opacity, 1);
+  }
+}
+

@@ -1,0 +1,36 @@
+// animation
+$animation-fadeIn-duration: .3s;
+$animation-fadeOut-duration: .3s;
+$animation-fadeUp-duration: .3s;
+$animation-fadeIn-header-duration: .5s;
+$animation-fadeOut-header-duration: .5s;
+
+// layers
+
+@mixin layer-under {
+  z-index: -1;
+}
+
+@mixin layer-1 {
+  z-index: 10;
+}
+
+@mixin layer-2 {
+  z-index: 20;
+}
+
+@mixin layer-3 {
+  z-index: 30;
+}
+
+@mixin layer-4 {
+  z-index: 40;
+}
+
+@mixin layer-5 {
+  z-index: 50;
+}
+
+@mixin layer-full {
+  z-index: 99;
+}
