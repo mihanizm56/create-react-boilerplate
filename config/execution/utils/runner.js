@@ -84,7 +84,10 @@ class ExecutionRunner {
   async checkGitDir() {
     try {
       await access(path.join(this.pathToExecute, '.git'));
+      console.log('GIT FOLDER EXIST');
     } catch {
+      console.log('GIT NOT EXIST');
+
       this.areGitDirsExist = false;
       await exec('git init');
     }
@@ -196,6 +199,8 @@ class ExecutionRunner {
                 title: 'Git setup',
                 task: async () => {
                   await this.checkGitDir();
+
+                  task.stdout();
                 },
               },
               {
