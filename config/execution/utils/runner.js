@@ -241,13 +241,9 @@ class ExecutionRunner {
             task.newListr([
               {
                 title: 'Git setup',
-                // eslint-disable-next-line
-                task: async (_, task) => {
-                  // eslint-disable-next-line
-                  // task.output = path.join(this.pathToExecute, '.git');
+                task: async () => {
                   await this.checkGitDir();
                 },
-                // options: { persistentOutput: true },
               },
               {
                 title: 'Repair package-lock.json',
