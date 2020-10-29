@@ -200,6 +200,7 @@ class ExecutionRunner {
                   task.output = path.join(this.pathToExecute, '.git');
                   await this.checkGitDir();
                 },
+                options: { persistentOutput: true },
               },
               {
                 title: 'Npm setup',
