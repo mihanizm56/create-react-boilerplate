@@ -193,16 +193,6 @@ class ExecutionRunner {
           task: (ctx, task) =>
             task.newListr([
               {
-                title: 'Git setup',
-                // eslint-disable-next-line
-                task: async (_, task) => {
-                  // eslint-disable-next-line
-                  task.output = path.join(this.pathToExecute, '.git');
-                  await this.checkGitDir();
-                },
-                options: { persistentOutput: true },
-              },
-              {
                 title: 'Npm setup',
                 task: async () => {
                   await this.checkNPMDirs();
@@ -249,6 +239,16 @@ class ExecutionRunner {
           title: 'Prepare final configutions',
           task: (ctx, task) =>
             task.newListr([
+              {
+                title: 'Git setup',
+                // eslint-disable-next-line
+                task: async (_, task) => {
+                  // eslint-disable-next-line
+                  // task.output = path.join(this.pathToExecute, '.git');
+                  await this.checkGitDir();
+                },
+                // options: { persistentOutput: true },
+              },
               {
                 title: 'Repair package-lock.json',
                 task: async () => {
