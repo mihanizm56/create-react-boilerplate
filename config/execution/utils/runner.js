@@ -245,7 +245,7 @@ class ExecutionRunner {
             ]),
         },
         {
-          title: 'Конфигурирование проекта с бойлерплейтом',
+          title: 'Конфигурирование бойлерплейта',
           task: (ctx, task) =>
             task.newListr([
               {
