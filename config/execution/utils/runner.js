@@ -5,7 +5,7 @@
 const colors = require('colors');
 const username = require('os').userInfo().username;
 const path = require('path');
-const { spawn } = require('child_process');
+const { spawnSync } = require('child_process');
 const { Listr } = require('listr2');
 const Copier = require('@mihanizm56/node-file-copier');
 const { remove } = require('fs-extra');
@@ -127,21 +127,22 @@ class ExecutionRunner {
   }
 
   async startExecution() {
-    // const timestampStart = this.startTimer();
+    const timestampStart = this.startTimer();
 
     try {
       const cliRunner = this.getConfiguredCliRunner();
 
       await cliRunner.run();
       await process.chdir(this.pathToExecute);
-      await spawn(
-        'node',
-        ['node cli/_utils/ci-utils/precommit-runner/runner.js'],
-        { stdio: 'inherit', shell: true, windowsHide: true },
-      );
 
-      // this.finishTimer(timestampStart);
-      // console.log('Happy coding =)'.green);
+      spawnSync('node', ['cli/_utils/ci-utils/precommit-runner/runner.js'], {
+        stdio: 'inherit',
+        shell: true,
+        windowsHide: true,
+      });
+
+      this.finishTimer(timestampStart);
+      console.log('Happy coding =)'.green);
     } catch (error) {
       console.error(
         'error when executing the package',
