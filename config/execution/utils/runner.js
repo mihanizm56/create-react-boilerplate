@@ -147,13 +147,13 @@ class ExecutionRunner {
     return new Listr(
       [
         {
-          title: 'Asking questions',
+          title: 'Ввод необходимых значений',
           task: () => {},
         },
         {
           task: async () => {
             const prompt = new Select({
-              name: 'Choose the boilerplate modification',
+              name: 'Выберите модификацию бойлерплейта',
               message: 'Choose boilerplate modification',
               choices: ['rus', 'euro', 'shared', 'pure'],
             });
@@ -166,7 +166,8 @@ class ExecutionRunner {
           task: async (ctx, task) => {
             const inputPath = await task.prompt({
               type: 'Input',
-              message: 'Choose path to execute the boilerplate',
+              message:
+                'Введите относительный путь до директории где будет произведена распаковка',
             });
 
             if (!inputPath) {
@@ -189,11 +190,11 @@ class ExecutionRunner {
           },
         },
         {
-          title: 'Prepare directory',
+          title: 'Подготовка исходной директории',
           task: (ctx, task) =>
             task.newListr([
               {
-                title: 'Npm setup',
+                title: 'ПОдготовка npm исходной директории',
                 task: async () => {
                   await this.checkNPMDirs();
                   await this.uninstallInitialPackages();
@@ -202,11 +203,11 @@ class ExecutionRunner {
             ]),
         },
         {
-          title: 'Install boilerplate packages',
+          title: 'Установка модулей бойлерплейта',
           task: (ctx, task) =>
             task.newListr([
               {
-                title: 'Main packager',
+                title: 'Main упаковщик',
                 task: async () => {
                   await exec(
                     'npm install @wildberries/create-react-boilerplate',
@@ -222,13 +223,13 @@ class ExecutionRunner {
                 },
               },
               {
-                title: 'Config packager',
+                title: 'Config упаковщик',
                 task: async () => {
                   await exec(`npx ${this.getPackageConfigInstallCommand()}`);
                 },
               },
               {
-                title: 'CLI packager',
+                title: 'CLI упаковщик',
                 task: async () => {
                   await exec(`npx ${this.getPackageCLIInstallCommand()}`);
                 },
@@ -236,41 +237,41 @@ class ExecutionRunner {
             ]),
         },
         {
-          title: 'Prepare final configutions',
+          title: 'Конфигурирование проекта с бойлерплейтом',
           task: (ctx, task) =>
             task.newListr([
               {
-                title: 'Git setup',
+                title: 'Установка Git',
                 task: async () => {
                   await this.checkGitDir();
                 },
               },
               {
-                title: 'Repair package-lock.json',
+                title: 'Восстановление package-lock.json',
                 task: async () => {
                   await exec('npx npm-force-resolutions');
                 },
               },
               {
-                title: 'Add all files to git',
+                title: 'Добавление всех файлов проекта в гит (git add .)',
                 task: async () => {
                   await exec('git add .');
                 },
               },
               {
-                title: 'Husky setup',
+                title: 'Установка Husky',
                 task: async () => {
                   await exec('npx husky');
                 },
               },
               {
-                title: 'Roots setup',
+                title: 'Установка прав на директории проекта',
                 task: async () => {
                   await this.setupRoots();
                 },
               },
               {
-                title: 'Npm install',
+                title: 'Установка npm зависимостей',
                 task: async () => {
                   await exec('npm install');
 
@@ -287,7 +288,7 @@ class ExecutionRunner {
             ]),
         },
         {
-          title: 'Full project check',
+          title: 'Тестирование распакованного проекта',
           task: async () => {
             await exec(
               'node ./cli/_utils/ci-utils/executor.js --command=check-full-system',
