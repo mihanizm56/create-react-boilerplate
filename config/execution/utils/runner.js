@@ -194,7 +194,7 @@ class ExecutionRunner {
           task: (ctx, task) =>
             task.newListr([
               {
-                title: 'ПОдготовка npm исходной директории',
+                title: 'Подготовка npm исходной директории',
                 task: async () => {
                   await this.checkNPMDirs();
                   await this.uninstallInitialPackages();
