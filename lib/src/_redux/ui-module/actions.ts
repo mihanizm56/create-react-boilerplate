@@ -20,12 +20,12 @@ export const stopSupplierPageLoadingAction: BaseAction = () => ({
   type: STOP_SUPPLIER_PAGE_LOADING,
 });
 
-export const START_I18NEXT_LOADING = 'START_i18NEXT_LOADING';
+export const START_I18NEXT_LOADING = 'START_I18NEXT_LOADING';
 export const starti18nextLoadingAction: BaseAction = () => ({
   type: START_I18NEXT_LOADING,
 });
 
-export const STOP_I18NEXT_LOADING = 'STOP_i18NEXT_LOADING';
+export const STOP_I18NEXT_LOADING = 'STOP_I18NEXT_LOADING';
 export const stopi18nextLoadingAction: BaseAction = () => ({
   type: STOP_I18NEXT_LOADING,
 });
