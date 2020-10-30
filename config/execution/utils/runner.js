@@ -132,6 +132,8 @@ class ExecutionRunner {
       const cliRunner = this.getConfiguredCliRunner();
 
       await cliRunner.run();
+      await process.chdir(this.pathToExecute);
+      await exec('node cli/_utils/ci-utils/precommit-runner/runner.js');
 
       this.finishTimer(timestampStart);
       console.log('Happy coding =)'.green);
@@ -287,14 +289,14 @@ class ExecutionRunner {
               },
             ]),
         },
-        {
-          title: 'Тестирование распакованного проекта',
-          task: async () => {
-            await exec(
-              'node ./cli/_utils/ci-utils/executor.js --command=check-full-system',
-            );
-          },
-        },
+        // {
+        //   title: 'Тестирование распакованного проекта',
+        //   task: async () => {
+        //     await exec(
+        //       'node ./cli/_utils/ci-utils/executor.js --command=check-full-system',
+        //     );
+        //   },
+        // },
       ],
       {
         rendererOptions: { collapse: false },
