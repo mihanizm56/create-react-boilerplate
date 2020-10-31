@@ -295,14 +295,6 @@ class ExecutionRunner {
               },
             ]),
         },
-        // {
-        //   title: 'Тестирование распакованного проекта',
-        //   task: async () => {
-        //     await exec(
-        //       'node ./cli/_utils/ci-utils/executor.js --command=check-full-system',
-        //     );
-        //   },
-        // },
       ],
       {
         rendererOptions: { collapse: false },
