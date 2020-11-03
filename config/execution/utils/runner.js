@@ -202,6 +202,12 @@ class ExecutionRunner {
           task: (ctx, task) =>
             task.newListr([
               {
+                title: 'Очистка кэша npm',
+                task: async () => {
+                  await exec('npm cache clean -f');
+                },
+              },
+              {
                 title: 'Подготовка npm исходной директории',
                 task: async () => {
                   await this.checkNPMDirs();
