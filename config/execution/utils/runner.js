@@ -14,6 +14,10 @@ const { isWindows } = require('./is-windows');
 const { exec, access, rename } = require('./fs-promises');
 const { getExecutionPaths } = require('./execution-paths');
 const { getArrayOfCopiedFiles } = require('./get-array-of-copied-files');
+const {
+  getModificationTitles,
+  getModificationValueByTitle,
+} = require('./modifications');
 
 class ExecutionRunner {
   constructor() {
@@ -102,11 +106,19 @@ class ExecutionRunner {
   }
 
   getPackageConfigInstallCommand() {
-    return `@wildberries/boilerplate-config-packager --${this.modification}`;
+    const modificationValue = getModificationValueByTitle(
+      this.modificationTitle,
+    );
+
+    return `@wildberries/boilerplate-config-packager --${modificationValue}`;
   }
 
   getPackageCLIInstallCommand() {
-    return `@wildberries/boilerplate-cli-packager --${this.modification}`;
+    const modificationValue = getModificationValueByTitle(
+      this.modificationTitle,
+    );
+
+    return `@wildberries/boilerplate-cli-packager --${modificationValue}`;
   }
 
   async setupRoots() {
@@ -160,14 +172,16 @@ class ExecutionRunner {
         },
         {
           task: async () => {
+            const modificationTitles = getModificationTitles();
+
             const prompt = new Select({
               name: 'Выберите модификацию бойлерплейта',
               message: 'Choose boilerplate modification',
-              choices: ['rus', 'euro', 'shared', 'pure'],
+              choices: modificationTitles,
             });
 
-            const modification = await prompt.run();
-            this.modification = modification;
+            const modificationTitle = await prompt.run();
+            this.modificationTitle = modificationTitle;
           },
         },
         {
