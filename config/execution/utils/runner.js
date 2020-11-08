@@ -175,8 +175,7 @@ class ExecutionRunner {
             const modificationTitles = getModificationTitles();
 
             const prompt = new Select({
-              name: 'Выберите модификацию бойлерплейта',
-              message: 'Choose boilerplate modification',
+              message: 'Выберите модификацию бойлерплейта',
               choices: modificationTitles,
             });
 
