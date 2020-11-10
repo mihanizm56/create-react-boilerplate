@@ -1,12 +1,17 @@
 import React, { memo } from 'react';
 import classnames from 'classnames/bind';
-import { Text } from '@wildberries/ui-kit';
 import styles from './index.module.scss';
+import { Card } from './_components/card';
 
 const cn = classnames.bind(styles);
 
+const BLOCK_NAME = 'Home-page';
+
 export const Page = memo(() => (
-    <div data-page="home" className={cn('homePage')}>
-      <Text text="hello world" size="h1" color="black" />
+  <div className={cn(BLOCK_NAME)} data-page="home-page">
+    <aside className={cn(`${BLOCK_NAME}__sidebar`)} />
+    <div className={cn(`${BLOCK_NAME}__card-wrapper`)}>
+      <Card />
     </div>
-  ))
+  </div>
+));

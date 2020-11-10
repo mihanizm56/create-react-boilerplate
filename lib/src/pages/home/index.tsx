@@ -2,7 +2,9 @@ import React from 'react';
 import { RouteNode } from '@wildberries/service-router';
 import { injectAsyncReducer } from '@wildberries/redux-core-modules';
 import { AppLayout } from '@/_layouts/app-layout';
-import reducerUI, { MODULE_REDUCER_NAME as reducerUIName } from '@/_redux/ui-module';
+import reducerUI, {
+  MODULE_REDUCER_NAME as reducerUIName,
+} from '@/_redux/ui-module';
 import { Page } from './page';
 
 const pageNode = 'home';
@@ -33,7 +35,7 @@ const action = async ({ store }) => {
         </RouteNode>
       </AppLayout>
     ),
-  }
+  };
 };
 
 export default action;
