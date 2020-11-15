@@ -1,15 +1,15 @@
 {
   "name": "@wildberries/create-react-boilerplate",
-  "version": "0.2.46",
+  "version": "0.2.47",
   "description": "boilerplate wildberries",
   "license": "MIT",
-  "homepage": "https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate#readme",
+  "homepage": "https://github.com/mihanizm56/create-react-boilerplate#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate.git"
+    "url": "git+https://github.com/mihanizm56/create-react-boilerplate.git"
   },
   "bugs": {
-    "url": "https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate/issues"
+    "url": "https://github.com/mihanizm56/create-react-boilerplate/issues"
   },
   "scripts": {
     "lint": "npx eslint ./config --ext .js --fix",
