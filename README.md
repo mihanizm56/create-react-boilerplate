@@ -2,9 +2,10 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Wildberries Boilerplate 2.0
+# Wildberries React Boilerplate
 
 # Основные замечания
+ - Linux/Macos/Windows(с bash) совместимость (для некоторых команд также требуется установленный Docker)
  - Фрактальная архитектура проекта
  - Typescipt/pure js
  - Router 5
@@ -12,18 +13,23 @@
  - Express/Nginx (http2+server_push) сервер статики
  - Redux-ducks/Databus/Graphql стейт-менеджеры
  - Microservice/Monolith поддерживаемые архитектуры
- - install & healthcheck при уставовки
+ - install & healthcheck при установке
  - параллельный анимированный запуск прекоммит проверок
  - Commitizen+Commitlint
  - Express для мок-сервера
 
-## Приготовлеие
-```sh
+
+## Установка
+```javascript
+$ npx @wildberries/create-react-boilerplate (далее выбор модификации и путь до директории установки в консоли)
+``` 
+## Подготовка
+```javascript
 $ npm run setup
 ``` 
 
 ## Запуск
-```sh
+```javascript
 $ npm run wb
 ``` 
 
