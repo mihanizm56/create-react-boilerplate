@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/create-react-boilerplate",
-  "version": "0.2.45",
+  "version": "0.2.46",
   "description": "boilerplate wildberries",
   "license": "MIT",
   "homepage": "https://git.wildberries.ru/portals/suppliers-portal-react-boilerplate#readme",
@@ -51,6 +51,14 @@
     },
     "cz-customizable": {
       "config": "config/git/commitizen.js"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
+      "pre-commit": "npm run lint && git add .",
+      "pre-push": "npm run size",
+      "prepare-commit-msg": "node ./config/git/prepare-commit.js"
     }
   },
   "files": [
