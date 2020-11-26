@@ -1,7 +1,8 @@
 const MODIFICATIONS = [
-  { title: 'Микросервис (старый каркас)', value: 'rus' },
-  { title: 'Микросервис (новый каркас)', value: 'euro' },
-  { title: 'Shared конфигурация', value: 'shared' },
+  { title: 'Микросервис (Старый каркас)', value: 'rus' },
+  { title: 'Микросервис (Новый каркас)', value: 'euro' },
+  { title: 'Shared конфигурация (Монолит)', value: 'shared' },
+  { title: 'Gatsby конфигурация (Новый каркас)', value: 'gatsby' },
   { title: 'Pure конфигурация', value: 'pure' },
 ];
 
