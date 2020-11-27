@@ -18,6 +18,9 @@ const {
   getModificationTitles,
   getModificationValueByTitle,
 } = require('./modifications');
+const {
+  additionalPatchPackageJson,
+} = require('./additional-patch-package-json');
 
 class ExecutionRunner {
   constructor() {
@@ -300,6 +303,12 @@ class ExecutionRunner {
               {
                 title: 'Установка npm зависимостей',
                 task: async () => {
+                  const modificationValue = getModificationValueByTitle(
+                    this.modificationTitle,
+                  );
+
+                  await additionalPatchPackageJson(modificationValue);
+
                   await exec('npm install');
 
                   if (
