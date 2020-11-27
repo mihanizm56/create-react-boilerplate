@@ -19,8 +19,8 @@ const {
   getModificationValueByTitle,
 } = require('./modifications');
 const {
-  additionalPatchPackageJson,
-} = require('./additional-patch-package-json');
+  replaceEmptyPackageJsonFields,
+} = require('./replace-empty-package-json-fields');
 
 class ExecutionRunner {
   constructor() {
@@ -303,11 +303,7 @@ class ExecutionRunner {
               {
                 title: 'Установка npm зависимостей',
                 task: async () => {
-                  const modificationValue = getModificationValueByTitle(
-                    this.modificationTitle,
-                  );
-
-                  await additionalPatchPackageJson(modificationValue);
+                  await replaceEmptyPackageJsonFields();
 
                   await exec('npm install');
 
