@@ -3,6 +3,7 @@ const MODIFICATIONS = [
   { title: 'Микросервис (Новый каркас)', value: 'euro' },
   { title: 'Shared конфигурация (Монолит)', value: 'shared' },
   { title: 'Gatsby конфигурация (Новый каркас)', value: 'gatsby' },
+  { title: 'Graphql конфигурация (Чистая конфигурация)', value: 'graphql' },
   { title: 'Pure конфигурация', value: 'pure' },
 ];
 
