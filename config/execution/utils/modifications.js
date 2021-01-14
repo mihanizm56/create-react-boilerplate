@@ -5,6 +5,7 @@ const MODIFICATIONS = [
   { title: 'Gatsby конфигурация (Новый каркас)', value: 'gatsby' },
   { title: 'Graphql конфигурация (Чистая конфигурация)', value: 'graphql' },
   { title: 'Pure конфигурация', value: 'pure' },
+  { title: 'Server-side-rendering конфигурация', value: 'ssr' },
 ];
 
 const getModificationTitles = () => MODIFICATIONS.map(({ title }) => title);
