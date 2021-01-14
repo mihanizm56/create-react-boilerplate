@@ -14,9 +14,22 @@
 # Misc
 .DS_Store
 
-# ide
+# Editors and IDEs
 .idea
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+
+# awesome-typescript-loader + babel-loader cache
+.awcache
 
 
 # videoshots
