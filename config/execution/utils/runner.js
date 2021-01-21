@@ -121,6 +121,8 @@ class ExecutionRunner {
       this.modificationTitle,
     );
 
+    console.log('modificationValue', modificationValue);
+
     return `@wildberries/boilerplate-cli-packager --${modificationValue}`;
   }
 
