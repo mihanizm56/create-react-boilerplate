@@ -40,10 +40,6 @@ import 'normalize.css';
 import '@/styles/global.css';
 import '@/styles/variables.module.scss';
 import '@/styles/colors.module.scss';
-// import { getInitialData } from './databus/get-initial-data';
-
-// DATABUS SECTION
-// getInitialData();
 
 const ROOT_ELEMENT = document.getElementById('root');
 
@@ -52,8 +48,7 @@ const router = configureRouter({
   eventNameToCancelRequests: ABORT_REQUEST_EVENT_NAME,
   // uncomment if you need envs from window (for example for request endpoints)
   // enableWindowEnvsMiddleware: true,
-  // uncomment if you need translations
-  // enablei18nMiddleware: true,
+  enablei18nMiddleware: true,
 });
 
 const store = createAppStore({
