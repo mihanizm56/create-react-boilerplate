@@ -39,7 +39,6 @@ import {
 import 'normalize.css';
 import '@/styles/global.css';
 import '@/styles/variables.module.scss';
-import '@/styles/colors.module.scss';
 
 const ROOT_ELEMENT = document.getElementById('root');
 
