@@ -17,10 +17,6 @@ const action = async ({ store }) => {
   });
 
   return {
-    // uncomment if you need translations
-    // i18n: {
-    //   namespaces: [appNamespace],
-    // },
     title: 'Home',
     content: (
       <AppLayout>
