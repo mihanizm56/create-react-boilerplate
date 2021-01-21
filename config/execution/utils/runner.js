@@ -121,9 +121,9 @@ class ExecutionRunner {
       this.modificationTitle,
     );
 
-    console.log('modificationValue', modificationValue);
+    throw new Error(modificationValue);
 
-    return `@wildberries/boilerplate-cli-packager --${modificationValue}`;
+    // return `@wildberries/boilerplate-cli-packager --${modificationValue}`;
   }
 
   async setupRoots() {
