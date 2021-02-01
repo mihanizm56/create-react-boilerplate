@@ -2,33 +2,75 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Wildberries Boilerplate 2.0
+# Wildberries React Boilerplate
 
-## Architecture Sollutions
+# Основные замечания
+ - Linux/Macos/Windows(с bash) совместимость (для некоторых команд также требуется установленный Docker)
+ - Фрактальная архитектура проекта
+ - Typescipt/pure js
+ - Router 5
+ - CRA v3 & rewired
+ - Express/Nginx (http2+server_push) сервер статики
+ - Redux-ducks/Databus/Graphql стейт-менеджеры
+ - Microservice/Monolith поддерживаемые архитектуры
+ - install & healthcheck при установке
+ - параллельный анимированный запуск прекоммит проверок
+ - Commitizen+Commitlint
+ - Express для мок-сервера
 
-### Frontend:
-  - The frontend architecture is based on WB mobile-site
-  - The redux-architecture is based on Redux-Ducks
-  - All Shared Components are located in src/_components
-  - Fonts are located in public/_assets/fonts
 
-## Development
-This template offers you the type of development where you can independently develop the frontend part and the backend part:
-  - To develop the frontend part you are to simply use src/ folder
-  - To develop the mock backend part you are to develop your REST API as a usual express app in server/**
-
-## Test
- - Boilerplate offers you to write unit-tests with jest and enzyme
- - Boilerplate offers you to write integration-tests with testcafe
-
-## All Useful Scripts:
-
-#### Prepare the Boilerplate:
-```sh
+## Установка
+```javascript
+$ npx @wildberries/create-react-boilerplate (далее выбор модификации и путь до директории установки в консоли)
+``` 
+## Подготовка
+```javascript
 $ npm run setup
 ``` 
 
-#### Start to work with the Boilerplate:
-```sh
+## Запуск
+```javascript
 $ npm run wb
 ``` 
+
+# Структура проекта
+```
+├── README.md - Документация
+├── build – Результат сборки
+├── cli – CLI бойлерплейта
+├── config – Конфигурации бойлерплейта
+├── public – Статика доступная из корня после сборки
+├── server – Мок-сервер бойлерплейта и сервер статики (в зависимости от модифицикации)
+├── src
+│   ├── _assets – Папка с ассетами (может распологаться на любом уровне вложенности)
+│   ├── _databus – Мапка с модулями Databus (может распологаться на любом уровне вложенности)
+│   │   └── databus модули...
+│   │       ├── action-creators - сайд эффекты проекта (like redux-thunk)
+│   │       ├── selectors - селекторы Databus
+│   │       │   ├── selectors.ts - селекторы чистого Databus
+│   │       │   └── subscriber-selectors.ts - селекторы React-адаптера Subscriber (@ravilm/databus-react) (like redux)
+│   │       |
+│   │       ├── actions.ts - actions Databus (like redux)
+│   │       ├── events.ts - events Databus (like redux)
+│   │       └── listeners.ts - listeners Databus (like redux)
+│   │
+│   ├── _redux – Папка с модулями redux (может распологаться на любом уровне вложенности)
+│   │   └── redux-ducks модули...
+│   │
+│   ├── _constants – Константы (может распологаться на любом уровне вложенности) (может быть как файлом так и папкой)
+│   ├── _utils – Утилиты основного уровня проекта (может распологаться на любом уровне вложенности)
+│   ├── _types – Типы (может распологаться на любом уровне вложенности) (может быть как файлом так и папкой)
+│   ├── _components – React компоненты (может распологаться на любом уровне вложенности)
+│   ├── _layouts – Шаблоны для страниц (может распологаться на любом уровне вложенности)
+│   ├── api – Папка с запросами
+│   ├── pages – Точка входа роутинга проекта
+|   |   ├── store-inject-config – Настройки для запросов за данными при заходе на страницу роутинга
+│   │   └── pages модули...
+│   |
+│   ├── index.tsx – Точка входа проекта
+│   ├── react-app-env.d.ts – Глобальные типы проекта
+│   └── ... Манифесты настроек проекта
+│
+├── utils – Утилиты верхнего уровня проекта (не путать с _utils)
+└── ... манифесты настроек проекта
+```
